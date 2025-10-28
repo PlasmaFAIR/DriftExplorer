@@ -17,9 +17,11 @@ class DriftExplorer(QMainWindow, Ui_MainWindow):
 
         self.reset()
 
+        self.clear_fig_button.clicked.connect(self.plot.clear_fig)
         self.reset_button.clicked.connect(self.reset)
         self.run_button.clicked.connect(self.run)
         self.stop_button.clicked.connect(self.stop)
+        self.end_button.clicked.connect(self.run_to_end)
 
         self.actionExit.triggered.connect(self.close)
         self.action_Run.triggered.connect(self.run)
@@ -51,7 +53,23 @@ class DriftExplorer(QMainWindow, Ui_MainWindow):
 
         self.plot.clear_fig()
 
-    def run(self):
+    @property
+    def magnetic_field(self):
+        return [
+            self.b_x_spin_box.value(),
+            self.b_y_spin_box.value(),
+            self.b_z_spin_box.value(),
+        ]
+
+    @property
+    def force(self):
+        return [
+            self.f_x_spin_box.value(),
+            self.f_y_spin_box.value(),
+            self.f_z_spin_box.value(),
+        ]
+
+    def run_sim(self):
         initial_conditions = [
             self.x_spin_box.value(),
             self.y_spin_box.value(),
@@ -60,24 +78,14 @@ class DriftExplorer(QMainWindow, Ui_MainWindow):
             self.v_y_spin_box.value(),
             self.v_z_spin_box.value(),
         ]
-        magnetic_field = [
-            self.b_x_spin_box.value(),
-            self.b_y_spin_box.value(),
-            self.b_z_spin_box.value(),
-        ]
-        force = [
-            self.f_x_spin_box.value(),
-            self.f_y_spin_box.value(),
-            self.f_z_spin_box.value(),
-        ]
 
         self.positions = compute_motion(
             initial_conditions,
             0.0,
             self.charge_spin_box.value(),
             self.mass_spin_box.value(),
-            magnetic_field,
-            force,
+            self.magnetic_field,
+            self.force,
             num_periods=self.num_gyroperiods_spinbox.value(),
             points_per_period=self.points_per_period_spinbox.value(),
             method=self.method_box.currentText(),
@@ -85,9 +93,18 @@ class DriftExplorer(QMainWindow, Ui_MainWindow):
             atol=self.atol_box.value(),
         )
 
-        self.plot.plot_field(magnetic_field, self.positions[-1, :])
+    def run(self):
+        self.run_sim()
+        self.plot.plot_field(self.magnetic_field, self.positions[-1, :])
+        self.plot.plot_force(self.force, self.positions[-1, :])
         self.plot.animate([self.positions])
 
     def stop(self):
         if self.plot.animation is not None:
             self.plot.animation.pause()
+
+    def run_to_end(self):
+        self.run_sim()
+        self.plot.plot_field(self.magnetic_field, self.positions[-1, :])
+        self.plot.plot_force(self.force, self.positions[-1, :])
+        self.plot.plot_all(self.positions)

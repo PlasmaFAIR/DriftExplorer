@@ -5,6 +5,7 @@ import signal
 
 from .gui import DriftExplorer
 
+
 def main():
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     app = QApplication(sys.argv)

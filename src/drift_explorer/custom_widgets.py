@@ -123,3 +123,23 @@ class MatplotlibWidget:
             length=length,
             arrow_length_ratio=1.0 / length,
         )
+
+    def plot_force(self, field, positions):
+        # TODO: better plotting of field
+        length = np.dot(field, positions)
+
+        self.axes.quiver(
+            0,
+            0,
+            0,
+            field[0],
+            field[1],
+            field[2],
+            color="red",
+            length=length,
+            arrow_length_ratio=1.0 / length,
+        )
+
+    def plot_all(self, positions):
+        self.axes.plot3D(positions[:, 0], positions[:, 1], positions[:, 2])
+        self.canvas.draw()

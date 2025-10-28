@@ -124,7 +124,9 @@ class Ui_MainWindow(object):
         self.x_spin_box = QtWidgets.QDoubleSpinBox(parent=self.verticalLayoutWidget)
         self.x_spin_box.setObjectName("x_spin_box")
         self.gridLayout.addWidget(self.x_spin_box, 4, 0, 1, 1)
-        self.charge_spin_box = QtWidgets.QDoubleSpinBox(parent=self.verticalLayoutWidget)
+        self.charge_spin_box = QtWidgets.QDoubleSpinBox(
+            parent=self.verticalLayoutWidget
+        )
         self.charge_spin_box.setProperty("value", 1.0)
         self.charge_spin_box.setObjectName("charge_spin_box")
         self.gridLayout.addWidget(self.charge_spin_box, 1, 0, 1, 1)
@@ -147,58 +149,104 @@ class Ui_MainWindow(object):
         self.num_gyroperiods_spinbox = QtWidgets.QSpinBox(parent=self.formLayoutWidget)
         self.num_gyroperiods_spinbox.setMaximum(1000000)
         self.num_gyroperiods_spinbox.setSingleStep(10)
-        self.num_gyroperiods_spinbox.setStepType(QtWidgets.QAbstractSpinBox.StepType.AdaptiveDecimalStepType)
+        self.num_gyroperiods_spinbox.setStepType(
+            QtWidgets.QAbstractSpinBox.StepType.AdaptiveDecimalStepType
+        )
         self.num_gyroperiods_spinbox.setProperty("value", 10)
         self.num_gyroperiods_spinbox.setObjectName("num_gyroperiods_spinbox")
-        self.formLayout.setWidget(0, QtWidgets.QFormLayout.ItemRole.LabelRole, self.num_gyroperiods_spinbox)
+        self.formLayout.setWidget(
+            0, QtWidgets.QFormLayout.ItemRole.LabelRole, self.num_gyroperiods_spinbox
+        )
         self.label_22 = QtWidgets.QLabel(parent=self.formLayoutWidget)
         self.label_22.setObjectName("label_22")
-        self.formLayout.setWidget(0, QtWidgets.QFormLayout.ItemRole.FieldRole, self.label_22)
+        self.formLayout.setWidget(
+            0, QtWidgets.QFormLayout.ItemRole.FieldRole, self.label_22
+        )
         self.method_box = QtWidgets.QComboBox(parent=self.formLayoutWidget)
         self.method_box.setObjectName("method_box")
-        self.formLayout.setWidget(2, QtWidgets.QFormLayout.ItemRole.LabelRole, self.method_box)
+        self.formLayout.setWidget(
+            2, QtWidgets.QFormLayout.ItemRole.LabelRole, self.method_box
+        )
         self.label_19 = QtWidgets.QLabel(parent=self.formLayoutWidget)
         self.label_19.setObjectName("label_19")
-        self.formLayout.setWidget(2, QtWidgets.QFormLayout.ItemRole.FieldRole, self.label_19)
+        self.formLayout.setWidget(
+            2, QtWidgets.QFormLayout.ItemRole.FieldRole, self.label_19
+        )
         self.rtol_box = ScientificDoubleSpinBox(parent=self.formLayoutWidget)
         self.rtol_box.setDecimals(16)
-        self.rtol_box.setStepType(QtWidgets.QAbstractSpinBox.StepType.AdaptiveDecimalStepType)
+        self.rtol_box.setStepType(
+            QtWidgets.QAbstractSpinBox.StepType.AdaptiveDecimalStepType
+        )
         self.rtol_box.setObjectName("rtol_box")
-        self.formLayout.setWidget(3, QtWidgets.QFormLayout.ItemRole.LabelRole, self.rtol_box)
+        self.formLayout.setWidget(
+            3, QtWidgets.QFormLayout.ItemRole.LabelRole, self.rtol_box
+        )
         self.label_20 = QtWidgets.QLabel(parent=self.formLayoutWidget)
         self.label_20.setObjectName("label_20")
-        self.formLayout.setWidget(3, QtWidgets.QFormLayout.ItemRole.FieldRole, self.label_20)
+        self.formLayout.setWidget(
+            3, QtWidgets.QFormLayout.ItemRole.FieldRole, self.label_20
+        )
         self.atol_box = ScientificDoubleSpinBox(parent=self.formLayoutWidget)
         self.atol_box.setDecimals(16)
-        self.atol_box.setStepType(QtWidgets.QAbstractSpinBox.StepType.AdaptiveDecimalStepType)
+        self.atol_box.setStepType(
+            QtWidgets.QAbstractSpinBox.StepType.AdaptiveDecimalStepType
+        )
         self.atol_box.setObjectName("atol_box")
-        self.formLayout.setWidget(4, QtWidgets.QFormLayout.ItemRole.LabelRole, self.atol_box)
+        self.formLayout.setWidget(
+            4, QtWidgets.QFormLayout.ItemRole.LabelRole, self.atol_box
+        )
         self.label_21 = QtWidgets.QLabel(parent=self.formLayoutWidget)
         self.label_21.setObjectName("label_21")
-        self.formLayout.setWidget(4, QtWidgets.QFormLayout.ItemRole.FieldRole, self.label_21)
-        self.points_per_period_spinbox = QtWidgets.QSpinBox(parent=self.formLayoutWidget)
+        self.formLayout.setWidget(
+            4, QtWidgets.QFormLayout.ItemRole.FieldRole, self.label_21
+        )
+        self.points_per_period_spinbox = QtWidgets.QSpinBox(
+            parent=self.formLayoutWidget
+        )
         self.points_per_period_spinbox.setMaximum(1000000)
         self.points_per_period_spinbox.setSingleStep(10)
-        self.points_per_period_spinbox.setStepType(QtWidgets.QAbstractSpinBox.StepType.AdaptiveDecimalStepType)
+        self.points_per_period_spinbox.setStepType(
+            QtWidgets.QAbstractSpinBox.StepType.AdaptiveDecimalStepType
+        )
         self.points_per_period_spinbox.setProperty("value", 100)
         self.points_per_period_spinbox.setObjectName("points_per_period_spinbox")
-        self.formLayout.setWidget(1, QtWidgets.QFormLayout.ItemRole.LabelRole, self.points_per_period_spinbox)
+        self.formLayout.setWidget(
+            1, QtWidgets.QFormLayout.ItemRole.LabelRole, self.points_per_period_spinbox
+        )
         self.label_23 = QtWidgets.QLabel(parent=self.formLayoutWidget)
         self.label_23.setObjectName("label_23")
-        self.formLayout.setWidget(1, QtWidgets.QFormLayout.ItemRole.FieldRole, self.label_23)
+        self.formLayout.setWidget(
+            1, QtWidgets.QFormLayout.ItemRole.FieldRole, self.label_23
+        )
         self.tabWidget.addTab(self.numerics, "")
         self.verticalLayout_2.addWidget(self.tabWidget)
         self.animation_control_layout = QtWidgets.QHBoxLayout()
         self.animation_control_layout.setObjectName("animation_control_layout")
+        self.clear_fig_button = QtWidgets.QPushButton(
+            parent=self.horizontalLayoutWidget
+        )
+        self.clear_fig_button.setObjectName("clear_fig_button")
+        self.animation_control_layout.addWidget(self.clear_fig_button)
         self.reset_button = QtWidgets.QPushButton(parent=self.horizontalLayoutWidget)
+        icon = QtGui.QIcon.fromTheme(QtGui.QIcon.ThemeIcon.EditUndo)
+        self.reset_button.setIcon(icon)
         self.reset_button.setObjectName("reset_button")
         self.animation_control_layout.addWidget(self.reset_button)
         self.run_button = QtWidgets.QPushButton(parent=self.horizontalLayoutWidget)
+        icon = QtGui.QIcon.fromTheme(QtGui.QIcon.ThemeIcon.MediaPlaybackStart)
+        self.run_button.setIcon(icon)
         self.run_button.setObjectName("run_button")
         self.animation_control_layout.addWidget(self.run_button)
         self.stop_button = QtWidgets.QPushButton(parent=self.horizontalLayoutWidget)
+        icon = QtGui.QIcon.fromTheme(QtGui.QIcon.ThemeIcon.MediaPlaybackStop)
+        self.stop_button.setIcon(icon)
         self.stop_button.setObjectName("stop_button")
         self.animation_control_layout.addWidget(self.stop_button)
+        self.end_button = QtWidgets.QPushButton(parent=self.horizontalLayoutWidget)
+        icon = QtGui.QIcon.fromTheme(QtGui.QIcon.ThemeIcon.MediaSkipForward)
+        self.end_button.setIcon(icon)
+        self.end_button.setObjectName("end_button")
+        self.animation_control_layout.addWidget(self.end_button)
         self.verticalLayout_2.addLayout(self.animation_control_layout)
         self.horizontalLayout.addLayout(self.verticalLayout_2)
         self.plot_widget = QtWidgets.QWidget(parent=self.horizontalLayoutWidget)
@@ -259,21 +307,29 @@ class Ui_MainWindow(object):
         self.label_4.setText(_translate("MainWindow", "F_y"))
         self.label_13.setText(_translate("MainWindow", "Force"))
         self.label_3.setText(_translate("MainWindow", "F_x"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.physics), _translate("MainWindow", "&Physics"))
+        self.tabWidget.setTabText(
+            self.tabWidget.indexOf(self.physics), _translate("MainWindow", "&Physics")
+        )
         self.numerics.setAccessibleName(_translate("MainWindow", "&Numerics"))
         self.label_22.setText(_translate("MainWindow", "Number of gyroperiods"))
         self.label_19.setText(_translate("MainWindow", "Method"))
         self.label_20.setText(_translate("MainWindow", "Relative tolerance"))
         self.label_21.setText(_translate("MainWindow", "Absolute tolerance"))
         self.label_23.setText(_translate("MainWindow", "Points per gyroperiod"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.numerics), _translate("MainWindow", "&Numerics"))
+        self.tabWidget.setTabText(
+            self.tabWidget.indexOf(self.numerics), _translate("MainWindow", "&Numerics")
+        )
+        self.clear_fig_button.setText(_translate("MainWindow", "&Clear figure"))
         self.reset_button.setText(_translate("MainWindow", "&Reset"))
         self.run_button.setText(_translate("MainWindow", "&Run"))
         self.stop_button.setText(_translate("MainWindow", "&Stop"))
+        self.end_button.setText(_translate("MainWindow", "&End"))
         self.menu_File.setTitle(_translate("MainWindow", "&File"))
         self.action_Run.setText(_translate("MainWindow", "&Run"))
         self.action_Reset.setText(_translate("MainWindow", "R&eset"))
         self.actionExit.setText(_translate("MainWindow", "E&xit"))
         self.actionExit.setToolTip(_translate("MainWindow", "Exit Drift Explorer"))
         self.actionExit.setShortcut(_translate("MainWindow", "Ctrl+Q"))
+
+
 from .custom_widgets import ScientificDoubleSpinBox

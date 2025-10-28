@@ -347,9 +347,19 @@
        <item>
         <layout class="QHBoxLayout" name="animation_control_layout">
          <item>
+          <widget class="QPushButton" name="clear_fig_button">
+           <property name="text">
+            <string>&amp;Clear figure</string>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QPushButton" name="reset_button">
            <property name="text">
             <string>&amp;Reset</string>
+           </property>
+           <property name="icon">
+            <iconset theme="QIcon::ThemeIcon::EditUndo"/>
            </property>
           </widget>
          </item>
@@ -358,12 +368,28 @@
            <property name="text">
             <string>&amp;Run</string>
            </property>
+           <property name="icon">
+            <iconset theme="QIcon::ThemeIcon::MediaPlaybackStart"/>
+           </property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="stop_button">
            <property name="text">
             <string>&amp;Stop</string>
+           </property>
+           <property name="icon">
+            <iconset theme="QIcon::ThemeIcon::MediaPlaybackStop"/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="end_button">
+           <property name="text">
+            <string>&amp;End</string>
+           </property>
+           <property name="icon">
+            <iconset theme="QIcon::ThemeIcon::MediaSkipForward"/>
            </property>
           </widget>
          </item>
