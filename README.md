@@ -8,3 +8,9 @@ electromagnetic fields.
 ```console
 $ uv pip install .
 ```
+
+## Running
+
+```console
+$ drift-explorer
+```
