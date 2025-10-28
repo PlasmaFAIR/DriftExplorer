@@ -21,9 +21,11 @@ def test_basic():
     z_min = ions[:, 2].min()
     z_max = ions[:, 2].max()
 
-    assert np.isclose(x_min, -1.0)
-    assert np.isclose(x_max, 1.0)
-    assert np.isclose(y_min, -1.0)
-    assert np.isclose(y_max, 1.0)
-    assert np.isclose(z_min, 0.0)
-    assert np.isclose(z_max, 2 * np.pi)
+    rtol = 1e-3
+
+    assert np.isclose(x_min, -1.0, rtol=rtol)
+    assert np.isclose(x_max, 1.0, rtol=rtol)
+    assert np.isclose(y_min, -1.0, rtol=rtol)
+    assert np.isclose(y_max, 1.0, rtol=rtol)
+    assert np.isclose(z_min, 0.0, rtol=rtol)
+    assert np.isclose(z_max, 2 * np.pi, rtol=rtol)

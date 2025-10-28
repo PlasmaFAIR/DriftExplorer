@@ -1,5 +1,5 @@
 import numpy as np
-from scipy.integrate import ode
+from scipy.integrate import ode, solve_ivp
 
 
 def norm(A):
@@ -23,14 +23,14 @@ def newton(t, Y, q, m, B, F):
 
     Fx, Fy, Fz = F
 
-    ax = (q / m) * (uy * Bz - uz * By) + (1 / m) * Fx
-    ay = (q / m) * (uz * Bx - ux * Bz) + (1 / m) * Fy
-    az = (q / m) * (ux * By - uy * Bx) + (1 / m) * Fz
+    inverse_mass = 1 / m
+    charge_mass_ratio = q * inverse_mass
+
+    ax = charge_mass_ratio * (uy * Bz - uz * By) + inverse_mass * Fx
+    ay = charge_mass_ratio * (uz * Bx - ux * Bz) + inverse_mass * Fy
+    az = charge_mass_ratio * (ux * By - uy * Bx) + inverse_mass * Fz
 
     return np.array([ux, uy, uz, ax, ay, az])
-
-
-r = ode(newton).set_integrator("dopri5")
 
 
 def compute_motion(
@@ -41,15 +41,10 @@ def compute_motion(
     B,
     F=[0, 0, 0],
     num_periods=10,
-    randomise=False,
-    random_timestep=10,
-    points_per_period=100
+    points_per_period=100,
 ):
-    r.set_initial_value(initial_conditions, t0).set_f_params(charge, mass, B, F)
-
     # Particle pusher
-    x0, y0, z0 = initial_conditions[0], initial_conditions[1], initial_conditions[2]
-    positions = [[x0, y0, z0]]
+    x0, y0, z0 = initial_conditions[:3]
 
     if callable(B):
         wc = np.abs(charge) * norm(B([x0, y0, z0])) / mass
@@ -61,19 +56,13 @@ def compute_motion(
     num_periods = num_periods / mass
     gyroperiod = 2 * np.pi / wc
     t1 = num_periods * gyroperiod
-    dt = (1 / points_per_period) * gyroperiod
-    timestep_num = 0
-    while r.successful() and r.t < t1:
-        r.integrate(r.t + dt)
-        timestep_num += 1
-        # Randomly jiggle velocities
-        if randomise and (timestep_num % random_timestep == 0):
-            r.y[3] += np.random.random() - 0.5
-            r.y[4] += np.random.random() - 0.5
-            r.y[5] += np.random.random() - 0.5
 
-        positions.append(r.y[:3])  # keeping only position, not velocity
+    solution = solve_ivp(
+        newton,
+        [0, t1],
+        initial_conditions,
+        args=(charge, mass, B, F),
+        t_eval=np.linspace(0, t1, int(num_periods) * points_per_period),
+    )
 
-    positions = np.array(positions)
-
-    return positions
+    return solution.y[:3].T
