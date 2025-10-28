@@ -1,0 +1,36 @@
+[project]
+name = "drift-explorer"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "matplotlib",
+    "numpy",
+    "scipy",
+    "PyQt6",
+]
+
+[project.urls]
+Source = "https://github.com/PlasmaFAIR/drift-explorer"
+Tracker = "https://github.com/PlasmaFAIR/drift-explorer/issues"
+Documentation = "https://drift-explorer.readthedocs.io/en/latest/"
+
+[project.optional-dependencies]
+docs = [
+    "sphinx >= 5.3",
+    "sphinx_autodoc_typehints >= 1.19",
+    "sphinx-book-theme >= 0.4.0rc1",
+    "myst_parser >= 0.14.0",
+]
+tests = [
+    "pytest >= 3.3.0",
+    "pytest-cov",
+    "pyrokinetics-plugin-examples == 0.2.1",
+]
+linting = [
+    "ruff",
+]
+
+[project.scripts]
+drift-explorer = "drift_explorer.__main__:main"
