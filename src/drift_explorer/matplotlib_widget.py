@@ -1,0 +1,88 @@
+#
+# Initial code taken from  http://stackoverflow.com/questions/6723527/getting-pyside-to-work-with-matplotlib
+# Additional bits from https://gist.github.com/jfburkhart/2423179
+#
+
+import matplotlib
+
+matplotlib.use("QtAgg")
+from matplotlib.backends.backend_qtagg import (
+    FigureCanvasQTAgg as FigureCanvas,
+    NavigationToolbar2QT as NavigationToolbar,
+)
+
+from matplotlib.figure import Figure
+import numpy as np
+
+from PyQt6.QtWidgets import QVBoxLayout
+
+import warnings
+
+from .animation import animate_particles
+
+
+class MatplotlibWidget:
+    def __init__(self, parent):
+
+        self.figure = Figure(constrained_layout=True)
+        self.canvas = FigureCanvas(self.figure)
+        self.canvas.setParent(parent)
+        self.mpl_toolbar = NavigationToolbar(self.canvas, parent)
+        self._make_axes()
+        self.animation = None
+
+        self.grid_layout = QVBoxLayout()
+        self.grid_layout.addWidget(self.canvas)
+        self.grid_layout.addWidget(self.mpl_toolbar)
+        parent.setLayout(self.grid_layout)
+
+        self.callback_id = None
+
+        warnings.filterwarnings(
+            "ignore", "Attempting to set identical left == right.*", UserWarning
+        )
+
+    def _make_axes(self):
+        self.axes = self.figure.add_subplot(111, projection="3d")
+
+    def _clean_axes(self):
+        """
+        Make sure the figure is in a nice state
+        """
+        # Get rid of any extra axes
+        if isinstance(self.axes, list):
+            for axes in self.axes:
+                del axes
+            self._make_axes()
+        else:
+            self.axes.clear()
+
+        self.figure.clear()
+        self.axes.grid(True)
+
+        # Remove any event callbacks
+        if self.callback_id:
+            try:
+                self.figure.canvas.mpl_disconnect(self.callback_id)
+            except TypeError:
+                for callback_id in self.callback_id:
+                    self.figure.canvas.mpl_disconnect(callback_id)
+                self.callback_id = None
+
+    def clear_fig(self):
+        """
+        Reset the plot widget
+        """
+        self._clean_axes()
+        self._make_axes()
+        self.canvas.draw()
+
+    def animate(self, positions):
+        self.animation = animate_particles(positions, ax=self.axes)
+        self.canvas.draw()
+
+    def plot_field(self, field, scale=1.0):
+        length = np.dot(field, field) * scale
+
+        self.axes.quiver(0,0,0, field[0],field[1],field[2], 
+          length=length, color='black', arrow_length_ratio=1/length)

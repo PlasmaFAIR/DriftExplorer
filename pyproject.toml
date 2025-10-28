@@ -32,5 +32,5 @@ linting = [
     "ruff",
 ]
 
-[project.scripts]
+[project.gui-scripts]
 drift-explorer = "drift_explorer.__main__:main"

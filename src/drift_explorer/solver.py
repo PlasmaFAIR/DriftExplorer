@@ -42,6 +42,9 @@ def compute_motion(
     F=[0, 0, 0],
     num_periods=10,
     points_per_period=100,
+    method="RK45",
+    rtol=None,
+    atol=None,
 ):
     # Particle pusher
     x0, y0, z0 = initial_conditions[:3]
@@ -57,12 +60,21 @@ def compute_motion(
     gyroperiod = 2 * np.pi / wc
     t1 = num_periods * gyroperiod
 
+    # Only pass these arguments if set
+    kwargs = {}
+    if rtol is not None:
+        kwargs["rtol"] = rtol
+    if atol is not None:
+        kwargs["atol"] = atol
+
     solution = solve_ivp(
         newton,
         [0, t1],
         initial_conditions,
         args=(charge, mass, B, F),
         t_eval=np.linspace(0, t1, int(num_periods) * points_per_period),
+        method=method,
+        **kwargs,
     )
 
     return solution.y[:3].T

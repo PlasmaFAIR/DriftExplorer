@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1069</width>
+    <height>762</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>DriftExplorer</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1061</width>
+      <height>711</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QTabWidget" name="tabWidget">
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="physics">
+          <attribute name="title">
+           <string>&amp;Physics</string>
+          </attribute>
+          <widget class="QWidget" name="verticalLayoutWidget">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>332</width>
+             <height>292</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout">
+            <item>
+             <layout class="QGridLayout" name="gridLayout">
+              <item row="0" column="0">
+               <widget class="QDoubleSpinBox" name="mass_spin_box">
+                <property name="value">
+                 <double>1.000000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="4">
+               <widget class="QDoubleSpinBox" name="z_spin_box"/>
+              </item>
+              <item row="4" column="5">
+               <widget class="QLabel" name="label_10">
+                <property name="text">
+                 <string>z0</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>Charge</string>
+                </property>
+               </widget>
+              </item>
+              <item row="13" column="3">
+               <widget class="QLabel" name="label_7">
+                <property name="text">
+                 <string>B_y</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QLabel" name="label_11">
+                <property name="text">
+                 <string>x0</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QLabel" name="label_15">
+                <property name="text">
+                 <string>Initial Velocity</string>
+                </property>
+               </widget>
+              </item>
+              <item row="13" column="2">
+               <widget class="QDoubleSpinBox" name="b_y_spin_box"/>
+              </item>
+              <item row="11" column="0">
+               <widget class="QLabel" name="label_14">
+                <property name="text">
+                 <string>Magnetic Field</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="label">
+                <property name="text">
+                 <string>Mass</string>
+                </property>
+               </widget>
+              </item>
+              <item row="13" column="1">
+               <widget class="QLabel" name="label_6">
+                <property name="text">
+                 <string>B_x</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="3">
+               <widget class="QLabel" name="label_9">
+                <property name="text">
+                 <string>y0</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="2">
+               <widget class="QDoubleSpinBox" name="y_spin_box"/>
+              </item>
+              <item row="6" column="2">
+               <widget class="QDoubleSpinBox" name="v_y_spin_box"/>
+              </item>
+              <item row="6" column="5">
+               <widget class="QLabel" name="label_18">
+                <property name="text">
+                 <string>vz</string>
+                </property>
+               </widget>
+              </item>
+              <item row="10" column="4">
+               <widget class="QDoubleSpinBox" name="f_z_spin_box"/>
+              </item>
+              <item row="13" column="5">
+               <widget class="QLabel" name="label_8">
+                <property name="text">
+                 <string>B_z</string>
+                </property>
+               </widget>
+              </item>
+              <item row="10" column="2">
+               <widget class="QDoubleSpinBox" name="f_y_spin_box"/>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_12">
+                <property name="text">
+                 <string>Initial Position</string>
+                </property>
+               </widget>
+              </item>
+              <item row="10" column="5">
+               <widget class="QLabel" name="label_5">
+                <property name="text">
+                 <string>F_z</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1">
+               <widget class="QLabel" name="label_16">
+                <property name="text">
+                 <string>vx</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="3">
+               <widget class="QLabel" name="label_17">
+                <property name="text">
+                 <string>vy</string>
+                </property>
+               </widget>
+              </item>
+              <item row="13" column="4">
+               <widget class="QDoubleSpinBox" name="b_z_spin_box">
+                <property name="value">
+                 <double>1.000000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="0">
+               <widget class="QDoubleSpinBox" name="v_x_spin_box"/>
+              </item>
+              <item row="10" column="3">
+               <widget class="QLabel" name="label_4">
+                <property name="text">
+                 <string>F_y</string>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="0">
+               <widget class="QLabel" name="label_13">
+                <property name="text">
+                 <string>Force</string>
+                </property>
+               </widget>
+              </item>
+              <item row="10" column="0">
+               <widget class="QDoubleSpinBox" name="f_x_spin_box"/>
+              </item>
+              <item row="10" column="1">
+               <widget class="QLabel" name="label_3">
+                <property name="text">
+                 <string>F_x</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QDoubleSpinBox" name="x_spin_box"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QDoubleSpinBox" name="charge_spin_box">
+                <property name="value">
+                 <double>1.000000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="4">
+               <widget class="QDoubleSpinBox" name="v_z_spin_box"/>
+              </item>
+              <item row="13" column="0">
+               <widget class="QDoubleSpinBox" name="b_x_spin_box"/>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="numerics">
+          <property name="accessibleName">
+           <string>&amp;Numerics</string>
+          </property>
+          <attribute name="title">
+           <string>&amp;Numerics</string>
+          </attribute>
+         </widget>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="animation_control_layout">
+         <item>
+          <widget class="QPushButton" name="reset_button">
+           <property name="text">
+            <string>&amp;Reset</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="run_button">
+           <property name="text">
+            <string>&amp;Run</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="stop_button">
+           <property name="text">
+            <string>&amp;Stop</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QWidget" name="plot_widget" native="true"/>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>690</y>
+      <width>254</width>
+      <height>28</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1069</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_File">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="action_Run"/>
+    <addaction name="action_Reset"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <addaction name="menu_File"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_Run">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::MediaPlaybackStart"/>
+   </property>
+   <property name="text">
+    <string>&amp;Run</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="action_Reset">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::EditUndo"/>
+   </property>
+   <property name="text">
+    <string>R&amp;eset</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>E&amp;xit</string>
+   </property>
+   <property name="toolTip">
+    <string>Exit Drift Explorer</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
