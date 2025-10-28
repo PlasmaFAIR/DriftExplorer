@@ -40,7 +40,7 @@
             <rect>
              <x>10</x>
              <y>10</y>
-             <width>332</width>
+             <width>366</width>
              <height>292</height>
             </rect>
            </property>
@@ -55,7 +55,11 @@
                </widget>
               </item>
               <item row="4" column="4">
-               <widget class="QDoubleSpinBox" name="z_spin_box"/>
+               <widget class="QDoubleSpinBox" name="z_spin_box">
+                <property name="decimals">
+                 <number>4</number>
+                </property>
+               </widget>
               </item>
               <item row="4" column="5">
                <widget class="QLabel" name="label_10">
@@ -93,7 +97,11 @@
                </widget>
               </item>
               <item row="13" column="2">
-               <widget class="QDoubleSpinBox" name="b_y_spin_box"/>
+               <widget class="QDoubleSpinBox" name="b_y_spin_box">
+                <property name="decimals">
+                 <number>4</number>
+                </property>
+               </widget>
               </item>
               <item row="11" column="0">
                <widget class="QLabel" name="label_14">
@@ -124,10 +132,21 @@
                </widget>
               </item>
               <item row="4" column="2">
-               <widget class="QDoubleSpinBox" name="y_spin_box"/>
+               <widget class="QDoubleSpinBox" name="y_spin_box">
+                <property name="decimals">
+                 <number>4</number>
+                </property>
+               </widget>
               </item>
               <item row="6" column="2">
-               <widget class="QDoubleSpinBox" name="v_y_spin_box"/>
+               <widget class="QDoubleSpinBox" name="v_y_spin_box">
+                <property name="decimals">
+                 <number>4</number>
+                </property>
+                <property name="singleStep">
+                 <double>0.100000000000000</double>
+                </property>
+               </widget>
               </item>
               <item row="6" column="5">
                <widget class="QLabel" name="label_18">
@@ -137,7 +156,14 @@
                </widget>
               </item>
               <item row="10" column="4">
-               <widget class="QDoubleSpinBox" name="f_z_spin_box"/>
+               <widget class="QDoubleSpinBox" name="f_z_spin_box">
+                <property name="decimals">
+                 <number>4</number>
+                </property>
+                <property name="singleStep">
+                 <double>0.100000000000000</double>
+                </property>
+               </widget>
               </item>
               <item row="13" column="5">
                <widget class="QLabel" name="label_8">
@@ -147,7 +173,14 @@
                </widget>
               </item>
               <item row="10" column="2">
-               <widget class="QDoubleSpinBox" name="f_y_spin_box"/>
+               <widget class="QDoubleSpinBox" name="f_y_spin_box">
+                <property name="decimals">
+                 <number>4</number>
+                </property>
+                <property name="singleStep">
+                 <double>0.100000000000000</double>
+                </property>
+               </widget>
               </item>
               <item row="2" column="0">
                <widget class="QLabel" name="label_12">
@@ -179,13 +212,23 @@
               </item>
               <item row="13" column="4">
                <widget class="QDoubleSpinBox" name="b_z_spin_box">
+                <property name="decimals">
+                 <number>4</number>
+                </property>
                 <property name="value">
                  <double>1.000000000000000</double>
                 </property>
                </widget>
               </item>
               <item row="6" column="0">
-               <widget class="QDoubleSpinBox" name="v_x_spin_box"/>
+               <widget class="QDoubleSpinBox" name="v_x_spin_box">
+                <property name="decimals">
+                 <number>4</number>
+                </property>
+                <property name="singleStep">
+                 <double>0.100000000000000</double>
+                </property>
+               </widget>
               </item>
               <item row="10" column="3">
                <widget class="QLabel" name="label_4">
@@ -202,7 +245,14 @@
                </widget>
               </item>
               <item row="10" column="0">
-               <widget class="QDoubleSpinBox" name="f_x_spin_box"/>
+               <widget class="QDoubleSpinBox" name="f_x_spin_box">
+                <property name="decimals">
+                 <number>4</number>
+                </property>
+                <property name="singleStep">
+                 <double>0.100000000000000</double>
+                </property>
+               </widget>
               </item>
               <item row="10" column="1">
                <widget class="QLabel" name="label_3">
@@ -212,7 +262,11 @@
                </widget>
               </item>
               <item row="4" column="0">
-               <widget class="QDoubleSpinBox" name="x_spin_box"/>
+               <widget class="QDoubleSpinBox" name="x_spin_box">
+                <property name="decimals">
+                 <number>4</number>
+                </property>
+               </widget>
               </item>
               <item row="1" column="0">
                <widget class="QDoubleSpinBox" name="charge_spin_box">
@@ -222,10 +276,21 @@
                </widget>
               </item>
               <item row="6" column="4">
-               <widget class="QDoubleSpinBox" name="v_z_spin_box"/>
+               <widget class="QDoubleSpinBox" name="v_z_spin_box">
+                <property name="decimals">
+                 <number>4</number>
+                </property>
+                <property name="singleStep">
+                 <double>0.100000000000000</double>
+                </property>
+               </widget>
               </item>
               <item row="13" column="0">
-               <widget class="QDoubleSpinBox" name="b_x_spin_box"/>
+               <widget class="QDoubleSpinBox" name="b_x_spin_box">
+                <property name="decimals">
+                 <number>4</number>
+                </property>
+               </widget>
               </item>
              </layout>
             </item>
