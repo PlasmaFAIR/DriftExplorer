@@ -239,6 +239,108 @@
           <attribute name="title">
            <string>&amp;Numerics</string>
           </attribute>
+          <widget class="QWidget" name="formLayoutWidget">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>331</width>
+             <height>221</height>
+            </rect>
+           </property>
+           <layout class="QFormLayout" name="formLayout">
+            <item row="0" column="0">
+             <widget class="QSpinBox" name="num_gyroperiods_spinbox">
+              <property name="maximum">
+               <number>1000000</number>
+              </property>
+              <property name="singleStep">
+               <number>10</number>
+              </property>
+              <property name="stepType">
+               <enum>QAbstractSpinBox::StepType::AdaptiveDecimalStepType</enum>
+              </property>
+              <property name="value">
+               <number>10</number>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLabel" name="label_22">
+              <property name="text">
+               <string>Number of gyroperiods</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QComboBox" name="method_box"/>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLabel" name="label_19">
+              <property name="text">
+               <string>Method</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="ScientificDoubleSpinBox" name="rtol_box">
+              <property name="decimals">
+               <number>16</number>
+              </property>
+              <property name="stepType">
+               <enum>QAbstractSpinBox::StepType::AdaptiveDecimalStepType</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QLabel" name="label_20">
+              <property name="text">
+               <string>Relative tolerance</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="ScientificDoubleSpinBox" name="atol_box">
+              <property name="decimals">
+               <number>16</number>
+              </property>
+              <property name="stepType">
+               <enum>QAbstractSpinBox::StepType::AdaptiveDecimalStepType</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QLabel" name="label_21">
+              <property name="text">
+               <string>Absolute tolerance</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QSpinBox" name="points_per_period_spinbox">
+              <property name="maximum">
+               <number>1000000</number>
+              </property>
+              <property name="singleStep">
+               <number>10</number>
+              </property>
+              <property name="stepType">
+               <enum>QAbstractSpinBox::StepType::AdaptiveDecimalStepType</enum>
+              </property>
+              <property name="value">
+               <number>100</number>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLabel" name="label_23">
+              <property name="text">
+               <string>Points per gyroperiod</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
          </widget>
         </widget>
        </item>
@@ -339,6 +441,13 @@
    </property>
   </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ScientificDoubleSpinBox</class>
+   <extends>QDoubleSpinBox</extends>
+   <header>.custom_widgets</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

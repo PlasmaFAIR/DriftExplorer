@@ -2,16 +2,18 @@ from PyQt6.QtWidgets import QMainWindow
 
 from .mainwindow import Ui_MainWindow
 from .solver import compute_motion
-from .matplotlib_widget import MatplotlibWidget
+from .custom_widgets import MatplotlibWidget
 
 
 class DriftExplorer(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setupUi(self)
-        
+
         self.plot = MatplotlibWidget(self.plot_widget)
         self.positions = None
+
+        self.method_box.addItems(["RK45", "RK23", "DOP853", "Radau", "BDF", "LSODA"])
 
         self.reset()
 
@@ -43,6 +45,10 @@ class DriftExplorer(QMainWindow, Ui_MainWindow):
         self.b_y_spin_box.setValue(0.0)
         self.b_z_spin_box.setValue(1.0)
 
+        self.method_box.setCurrentIndex(0)
+        self.rtol_box.setValue(1.0e-3)
+        self.atol_box.setValue(1.0e-6)
+
         self.plot.clear_fig()
 
     def run(self):
@@ -72,12 +78,16 @@ class DriftExplorer(QMainWindow, Ui_MainWindow):
             self.mass_spin_box.value(),
             magnetic_field,
             force,
+            num_periods=self.num_gyroperiods_spinbox.value(),
+            points_per_period=self.points_per_period_spinbox.value(),
+            method=self.method_box.currentText(),
+            rtol=self.rtol_box.value(),
+            atol=self.atol_box.value(),
         )
 
-        self.plot.plot_field(magnetic_field, self.positions.max())
+        self.plot.plot_field(magnetic_field, self.positions[-1, :])
         self.plot.animate([self.positions])
 
     def stop(self):
         if self.plot.animation is not None:
             self.plot.animation.pause()
-        

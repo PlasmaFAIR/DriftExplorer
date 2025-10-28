@@ -14,16 +14,43 @@ from matplotlib.backends.backend_qtagg import (
 from matplotlib.figure import Figure
 import numpy as np
 
-from PyQt6.QtWidgets import QVBoxLayout
+from PyQt6.QtWidgets import QVBoxLayout, QDoubleSpinBox
+from PyQt6.QtGui import QValidator
 
 import warnings
 
 from .animation import animate_particles
 
 
+class ScientificDoubleSpinBox(QDoubleSpinBox):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.setDecimals(3)
+        self.setMinimum(1e-16)
+        self.setMaximum(1e17)
+
+    def textFromValue(self, val):
+        return f"{val:5.3e}"
+
+    def valueFromText(self, text):
+        return float(text)
+
+    def validate(self, input, pos):
+        try:
+            float(input)
+            valid = QValidator.State.Acceptable
+        except ValueError:
+            valid = QValidator.State.Invalid
+
+        return (valid, input, pos)
+
+    def stepBy(self, step):
+        new_exponent = int(np.log10(self.value())) + step
+        self.setValue(float(f"1e{new_exponent}"))
+
+
 class MatplotlibWidget:
     def __init__(self, parent):
-
         self.figure = Figure(constrained_layout=True)
         self.canvas = FigureCanvas(self.figure)
         self.canvas.setParent(parent)
@@ -81,8 +108,18 @@ class MatplotlibWidget:
         self.animation = animate_particles(positions, ax=self.axes)
         self.canvas.draw()
 
-    def plot_field(self, field, scale=1.0):
-        length = np.dot(field, field) * scale
+    def plot_field(self, field, positions):
+        # TODO: better plotting of field
+        length = np.dot(field, positions)
 
-        self.axes.quiver(0,0,0, field[0],field[1],field[2], 
-          length=length, color='black', arrow_length_ratio=1/length)
+        self.axes.quiver(
+            0,
+            0,
+            0,
+            field[0],
+            field[1],
+            field[2],
+            color="black",
+            length=length,
+            arrow_length_ratio=1.0 / length,
+        )
