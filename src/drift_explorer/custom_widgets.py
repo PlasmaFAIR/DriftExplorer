@@ -75,6 +75,9 @@ class MatplotlibWidget:
 
     def _make_axes(self):
         self.axes = self.figure.add_subplot(111, projection="3d")
+        self.axes.set_xlabel("x [m]")
+        self.axes.set_ylabel("y [m]")
+        self.axes.set_zlabel("z [m]")
 
     def _clean_axes(self):
         """
@@ -117,4 +120,36 @@ class MatplotlibWidget:
 
     def plot_all(self, positions):
         self.axes.plot3D(positions[:, 0], positions[:, 1], positions[:, 2])
+        self.canvas.draw()
+
+    def set_view_xy(self):
+        self.axes.view_init(90, -90, 0)
+        self.canvas.draw()
+
+    def set_view_xz(self):
+        self.axes.view_init(0, -90, 0)
+        self.canvas.draw()
+
+    def set_view_yz(self):
+        self.axes.view_init(0, 0, 0)
+        self.canvas.draw()
+
+    def set_perspective(self):
+        self.axes.set_proj_type("persp")
+        self.canvas.draw()
+
+    def set_orthographic(self):
+        self.axes.set_proj_type("ortho")
+        self.canvas.draw()
+
+    def adjust_axis(self, limits):
+        self.axes.axis(limits)
+        self.canvas.draw()
+
+    def get_axis(self):
+        return self.axes.axis()
+
+    def reset_axis(self):
+        self.axes.axis("tight")
+        self.axes.axis("auto")
         self.canvas.draw()
