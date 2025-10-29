@@ -40,145 +40,17 @@
             <rect>
              <x>10</x>
              <y>10</y>
-             <width>366</width>
+             <width>400</width>
              <height>292</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout">
             <item>
              <layout class="QGridLayout" name="gridLayout">
-              <item row="0" column="0">
-               <widget class="QDoubleSpinBox" name="mass_spin_box">
-                <property name="value">
-                 <double>1.000000000000000</double>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="4">
-               <widget class="QDoubleSpinBox" name="z_spin_box">
-                <property name="decimals">
-                 <number>4</number>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="5">
-               <widget class="QLabel" name="label_10">
+              <item row="7" column="1">
+               <widget class="QLabel" name="fx_label">
                 <property name="text">
-                 <string>z0</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QLabel" name="label_2">
-                <property name="text">
-                 <string>Charge</string>
-                </property>
-               </widget>
-              </item>
-              <item row="13" column="3">
-               <widget class="QLabel" name="label_7">
-                <property name="text">
-                 <string>B_y</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="1">
-               <widget class="QLabel" name="label_11">
-                <property name="text">
-                 <string>x0</string>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="0">
-               <widget class="QLabel" name="label_15">
-                <property name="text">
-                 <string>Initial Velocity</string>
-                </property>
-               </widget>
-              </item>
-              <item row="13" column="2">
-               <widget class="QDoubleSpinBox" name="b_y_spin_box">
-                <property name="decimals">
-                 <number>4</number>
-                </property>
-               </widget>
-              </item>
-              <item row="11" column="0">
-               <widget class="QLabel" name="label_14">
-                <property name="text">
-                 <string>Magnetic Field</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1">
-               <widget class="QLabel" name="label">
-                <property name="text">
-                 <string>Mass</string>
-                </property>
-               </widget>
-              </item>
-              <item row="13" column="1">
-               <widget class="QLabel" name="label_6">
-                <property name="text">
-                 <string>B_x</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="3">
-               <widget class="QLabel" name="label_9">
-                <property name="text">
-                 <string>y0</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="2">
-               <widget class="QDoubleSpinBox" name="y_spin_box">
-                <property name="decimals">
-                 <number>4</number>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="2">
-               <widget class="QDoubleSpinBox" name="v_y_spin_box">
-                <property name="decimals">
-                 <number>4</number>
-                </property>
-                <property name="singleStep">
-                 <double>0.100000000000000</double>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="5">
-               <widget class="QLabel" name="label_18">
-                <property name="text">
-                 <string>vz</string>
-                </property>
-               </widget>
-              </item>
-              <item row="10" column="4">
-               <widget class="QDoubleSpinBox" name="f_z_spin_box">
-                <property name="decimals">
-                 <number>4</number>
-                </property>
-                <property name="singleStep">
-                 <double>0.100000000000000</double>
-                </property>
-               </widget>
-              </item>
-              <item row="13" column="5">
-               <widget class="QLabel" name="label_8">
-                <property name="text">
-                 <string>B_z</string>
-                </property>
-               </widget>
-              </item>
-              <item row="10" column="2">
-               <widget class="QDoubleSpinBox" name="f_y_spin_box">
-                <property name="decimals">
-                 <number>4</number>
-                </property>
-                <property name="singleStep">
-                 <double>0.100000000000000</double>
+                 <string>F_x</string>
                 </property>
                </widget>
               </item>
@@ -189,106 +61,240 @@
                 </property>
                </widget>
               </item>
-              <item row="10" column="5">
-               <widget class="QLabel" name="label_5">
-                <property name="text">
-                 <string>F_z</string>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="1">
-               <widget class="QLabel" name="label_16">
-                <property name="text">
-                 <string>vx</string>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="3">
-               <widget class="QLabel" name="label_17">
-                <property name="text">
-                 <string>vy</string>
-                </property>
-               </widget>
-              </item>
-              <item row="13" column="4">
-               <widget class="QDoubleSpinBox" name="b_z_spin_box">
+              <item row="5" column="0">
+               <widget class="ScientificDoubleSpinBox" name="v_x_spin_box">
                 <property name="decimals">
-                 <number>4</number>
-                </property>
-                <property name="value">
-                 <double>1.000000000000000</double>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="0">
-               <widget class="QDoubleSpinBox" name="v_x_spin_box">
-                <property name="decimals">
-                 <number>4</number>
+                 <number>6</number>
                 </property>
                 <property name="singleStep">
                  <double>0.100000000000000</double>
                 </property>
                </widget>
               </item>
-              <item row="10" column="3">
-               <widget class="QLabel" name="label_4">
+              <item row="5" column="5">
+               <widget class="QLabel" name="vz_label">
                 <property name="text">
-                 <string>F_y</string>
+                 <string>vz</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="4">
+               <widget class="ScientificDoubleSpinBox" name="z_spin_box">
+                <property name="decimals">
+                 <number>6</number>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="2">
+               <widget class="ScientificDoubleSpinBox" name="y_spin_box">
+                <property name="decimals">
+                 <number>6</number>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="5">
+               <widget class="QLabel" name="z0_label">
+                <property name="text">
+                 <string>z0</string>
+                </property>
+               </widget>
+              </item>
+              <item row="9" column="3">
+               <widget class="QLabel" name="by_label">
+                <property name="text">
+                 <string>B_y</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="ScientificDoubleSpinBox" name="charge_spin_box">
+                <property name="decimals">
+                 <number>6</number>
+                </property>
+                <property name="value">
+                 <double>1.000000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="ScientificDoubleSpinBox" name="x_spin_box">
+                <property name="decimals">
+                 <number>6</number>
+                </property>
+               </widget>
+              </item>
+              <item row="9" column="0">
+               <widget class="ScientificDoubleSpinBox" name="b_x_spin_box">
+                <property name="decimals">
+                 <number>6</number>
+                </property>
+               </widget>
+              </item>
+              <item row="9" column="2">
+               <widget class="ScientificDoubleSpinBox" name="b_y_spin_box">
+                <property name="decimals">
+                 <number>6</number>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="4">
+               <widget class="ScientificDoubleSpinBox" name="v_z_spin_box">
+                <property name="decimals">
+                 <number>6</number>
+                </property>
+                <property name="singleStep">
+                 <double>0.100000000000000</double>
                 </property>
                </widget>
               </item>
               <item row="7" column="0">
+               <widget class="ScientificDoubleSpinBox" name="f_x_spin_box">
+                <property name="decimals">
+                 <number>6</number>
+                </property>
+                <property name="singleStep">
+                 <double>0.100000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="5">
+               <widget class="QLabel" name="fz_label">
+                <property name="text">
+                 <string>F_z</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="ScientificDoubleSpinBox" name="mass_spin_box">
+                <property name="decimals">
+                 <number>6</number>
+                </property>
+                <property name="value">
+                 <double>1.000000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="9" column="1">
+               <widget class="QLabel" name="bx_label">
+                <property name="text">
+                 <string>B_x</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QLabel" name="x0_label">
+                <property name="text">
+                 <string>x0</string>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="4">
+               <widget class="ScientificDoubleSpinBox" name="f_z_spin_box">
+                <property name="decimals">
+                 <number>6</number>
+                </property>
+                <property name="singleStep">
+                 <double>0.100000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="3">
+               <widget class="QLabel" name="vy_label">
+                <property name="text">
+                 <string>vy</string>
+                </property>
+               </widget>
+              </item>
+              <item row="8" column="0">
+               <widget class="QLabel" name="label_14">
+                <property name="text">
+                 <string>Magnetic Field</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="2">
+               <widget class="ScientificDoubleSpinBox" name="v_y_spin_box">
+                <property name="decimals">
+                 <number>6</number>
+                </property>
+                <property name="singleStep">
+                 <double>0.100000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="0">
                <widget class="QLabel" name="label_13">
                 <property name="text">
                  <string>Force</string>
                 </property>
                </widget>
               </item>
-              <item row="10" column="0">
-               <widget class="QDoubleSpinBox" name="f_x_spin_box">
+              <item row="0" column="1">
+               <widget class="QLabel" name="mass_label">
+                <property name="text">
+                 <string>Mass</string>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="2">
+               <widget class="ScientificDoubleSpinBox" name="f_y_spin_box">
                 <property name="decimals">
-                 <number>4</number>
+                 <number>6</number>
                 </property>
                 <property name="singleStep">
                  <double>0.100000000000000</double>
                 </property>
                </widget>
               </item>
-              <item row="10" column="1">
-               <widget class="QLabel" name="label_3">
-                <property name="text">
-                 <string>F_x</string>
-                </property>
-               </widget>
-              </item>
               <item row="4" column="0">
-               <widget class="QDoubleSpinBox" name="x_spin_box">
-                <property name="decimals">
-                 <number>4</number>
+               <widget class="QLabel" name="label_15">
+                <property name="text">
+                 <string>Initial Velocity</string>
                 </property>
                </widget>
               </item>
-              <item row="1" column="0">
-               <widget class="QDoubleSpinBox" name="charge_spin_box">
+              <item row="1" column="1">
+               <widget class="QLabel" name="charge_label">
+                <property name="text">
+                 <string>Charge</string>
+                </property>
+               </widget>
+              </item>
+              <item row="9" column="4">
+               <widget class="ScientificDoubleSpinBox" name="b_z_spin_box">
+                <property name="decimals">
+                 <number>6</number>
+                </property>
                 <property name="value">
                  <double>1.000000000000000</double>
                 </property>
                </widget>
               </item>
-              <item row="6" column="4">
-               <widget class="QDoubleSpinBox" name="v_z_spin_box">
-                <property name="decimals">
-                 <number>4</number>
-                </property>
-                <property name="singleStep">
-                 <double>0.100000000000000</double>
+              <item row="7" column="3">
+               <widget class="QLabel" name="fy_label">
+                <property name="text">
+                 <string>F_y</string>
                 </property>
                </widget>
               </item>
-              <item row="13" column="0">
-               <widget class="QDoubleSpinBox" name="b_x_spin_box">
-                <property name="decimals">
-                 <number>4</number>
+              <item row="9" column="5">
+               <widget class="QLabel" name="bz_label">
+                <property name="text">
+                 <string>B_z</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1">
+               <widget class="QLabel" name="vx_label">
+                <property name="text">
+                 <string>vx</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="3">
+               <widget class="QLabel" name="y0_label">
+                <property name="text">
+                 <string>y0</string>
                 </property>
                </widget>
               </item>
@@ -331,7 +337,7 @@
              </widget>
             </item>
             <item row="0" column="1">
-             <widget class="QLabel" name="label_22">
+             <widget class="QLabel" name="num_gyroperiods_label">
               <property name="text">
                <string>Number of gyroperiods</string>
               </property>
@@ -341,7 +347,7 @@
              <widget class="QComboBox" name="method_box"/>
             </item>
             <item row="2" column="1">
-             <widget class="QLabel" name="label_19">
+             <widget class="QLabel" name="method_label">
               <property name="text">
                <string>Method</string>
               </property>
@@ -358,7 +364,7 @@
              </widget>
             </item>
             <item row="3" column="1">
-             <widget class="QLabel" name="label_20">
+             <widget class="QLabel" name="rtol_label">
               <property name="text">
                <string>Relative tolerance</string>
               </property>
@@ -375,7 +381,7 @@
              </widget>
             </item>
             <item row="4" column="1">
-             <widget class="QLabel" name="label_21">
+             <widget class="QLabel" name="atol_label">
               <property name="text">
                <string>Absolute tolerance</string>
               </property>
@@ -398,7 +404,7 @@
              </widget>
             </item>
             <item row="1" column="1">
-             <widget class="QLabel" name="label_23">
+             <widget class="QLabel" name="points_per_gyroperiod_label">
               <property name="text">
                <string>Points per gyroperiod</string>
               </property>

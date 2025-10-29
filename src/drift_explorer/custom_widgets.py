@@ -25,7 +25,7 @@ from .animation import animate_particles
 class ScientificDoubleSpinBox(QDoubleSpinBox):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.setDecimals(3)
+        self.setDecimals(8)
         self.setMinimum(1e-16)
         self.setMaximum(1e17)
 
