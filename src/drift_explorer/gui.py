@@ -1,5 +1,7 @@
 from PyQt6.QtWidgets import QMainWindow
 
+import numpy as np
+
 from .mainwindow import Ui_MainWindow
 from .solver import compute_motion
 from .custom_widgets import MatplotlibWidget
@@ -93,10 +95,36 @@ class DriftExplorer(QMainWindow, Ui_MainWindow):
             atol=self.atol_box.value(),
         )
 
+    def single_vector_as_field(self, vector):
+        if self.positions is not None:
+            limits = (
+                min(self.positions[:, 0]),
+                max(self.positions[:, 0]),
+                min(self.positions[:, 1]),
+                max(self.positions[:, 1]),
+                min(self.positions[:, 2]),
+                max(self.positions[:, 2]),
+            )
+        else:
+            limits = (-1, 1, -1, 1, 0, 2 * np.pi)
+
+        x = np.linspace(limits[0], limits[1], 5)
+        y = np.linspace(limits[2], limits[3], 5)
+        z = np.linspace(limits[4], limits[5], 5)
+
+        X, Y, Z = np.meshgrid(x, y, z, indexing="ij")
+        U = np.ones_like(X) * vector[0]
+        V = np.ones_like(Y) * vector[1]
+        W = np.ones_like(Z) * vector[2]
+
+        return (X, Y, Z, U, V, W)
+
     def run(self):
         self.run_sim()
-        self.plot.plot_field(self.magnetic_field, self.positions[-1, :])
-        self.plot.plot_force(self.force, self.positions[-1, :])
+
+        self.plot.plot_field(*self.single_vector_as_field(self.magnetic_field))
+        self.plot.plot_field(*self.single_vector_as_field(self.force), colour="red")
+
         self.plot.animate([self.positions])
 
     def stop(self):
@@ -105,6 +133,8 @@ class DriftExplorer(QMainWindow, Ui_MainWindow):
 
     def run_to_end(self):
         self.run_sim()
-        self.plot.plot_field(self.magnetic_field, self.positions[-1, :])
-        self.plot.plot_force(self.force, self.positions[-1, :])
+
+        self.plot.plot_field(*self.single_vector_as_field(self.magnetic_field))
+        self.plot.plot_field(*self.single_vector_as_field(self.force), colour="red")
+
         self.plot.plot_all(self.positions)

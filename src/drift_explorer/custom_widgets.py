@@ -112,37 +112,8 @@ class MatplotlibWidget:
         self.animation = animate_particles(positions, ax=self.axes)
         self.canvas.draw()
 
-    def plot_field(self, field, positions):
-        # TODO: better plotting of field
-        length = np.dot(field, positions)
-
-        self.axes.quiver(
-            0,
-            0,
-            0,
-            field[0],
-            field[1],
-            field[2],
-            color="black",
-            length=length,
-            arrow_length_ratio=1.0 / length,
-        )
-
-    def plot_force(self, field, positions):
-        # TODO: better plotting of field
-        length = np.dot(field, positions)
-
-        self.axes.quiver(
-            0,
-            0,
-            0,
-            field[0],
-            field[1],
-            field[2],
-            color="red",
-            length=length,
-            arrow_length_ratio=1.0 / length,
-        )
+    def plot_field(self, X, Y, Z, U, V, W, colour="black"):
+        self.axes.quiver(X, Y, Z, U, V, W, alpha=0.5, color=colour, normalize=True)
 
     def plot_all(self, positions):
         self.axes.plot3D(positions[:, 0], positions[:, 1], positions[:, 2])
