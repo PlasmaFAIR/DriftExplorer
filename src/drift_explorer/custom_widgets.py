@@ -45,7 +45,11 @@ class ScientificDoubleSpinBox(QDoubleSpinBox):
         return (valid, input, pos)
 
     def stepBy(self, step):
-        new_exponent = int(np.log10(self.value())) + step
+        try:
+            old_exponent = int(np.log10(self.value()))
+        except OverflowError:
+            old_exponent = 0
+        new_exponent = old_exponent + step
         self.setValue(float(f"1e{new_exponent}"))
 
 
